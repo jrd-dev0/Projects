@@ -1,0 +1,57 @@
+classDiagram
+    Program --> Library : uses
+    Program --> Book : creates
+    Program --> User : creates
+    Library "1" o-- "*" Book : contains
+    Library "1" o-- "*" User : contains
+    User "1" o-- "*" Book : borrows
+
+    class Program {
+        +main(String[] args)$ void
+    }
+
+    class Book {
+        -String title
+        -String author
+        -String isbn
+        -Boolean isAvailable
+        +Book(String title, String author, String isbn)
+        +getTitle() String
+        +getAuthor() String
+        +getIsbn() String
+        +getIsbnFormatted() String
+        +getIsAvailable() Boolean
+        +setAvailableWhenRegistred() boolean
+        +loan() void
+        +returnBook() void
+        +toString() String
+    }
+
+    class User {
+        -int id
+        -String name
+        -List~Book~ borrowedBooks
+        +User(int id, String name)
+        +getId() int
+        +getName() String
+        +setName(String name) void
+        +borrowBook(Book book) void
+        +returnBook(Book book) void
+        +getBorrowedBooks() List~Book~
+        +toString() String
+    }
+
+    class Library {
+        -List~Book~ books
+        -List~User~ users
+        +Library()
+        +getBooks() List~Book~
+        +getUsers() List~User~
+        +registerBook(Book book) void
+        +removeBook(Book book) void
+        +registerUser(User user) void
+        +removeUser(User user) void
+        +loanBook(Book book, User user) void
+        +returnBook(Book book, User user) void
+        +loanHistory(User user) void
+    }

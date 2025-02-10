@@ -1,0 +1,62 @@
+﻿@model IEnumerable<WebApp.Models.Employee>
+@{
+    ViewData["Title"] = "Employees";
+}
+
+    <div class="text-center">
+        <h2 class="display-4">@ViewData["Title"]</h2>
+        <br />
+    </div>
+
+    @if(TempData["Success"] is not null)
+    {
+        <div class="alert alert-info alert-dismissible fade show text-center col-5" role="alert">
+            <button type="button" class="btn btn-info btn-close" data-bs-dismiss="alert" arial-label="CloseIndexAlertButton_Success"></button>
+            @TempData["Success"]
+        </div>
+    }
+
+    @if(TempData["Error"] is not null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show text-center col-5" role="alert">
+            <button type="button" class="btn btn-danger btn-close" data-bs-dismiss="alert" arial-label="CloseIndexAlertButton_Danger"></button>
+            @TempData["Error"]
+        </div>
+    }
+<div class="d-grid gap-2 d-md-flex justify-content-md-center">
+    <br />
+    <div class="col-md-8">
+        <a class="btn btn-primary btn-lg" asp-action="Create">Create</a>
+        <br /><br />
+        <table class="table table-hover" id="table-employee">
+        <thead>
+        <tr>
+            <th class="fs-4">
+                @Html.DisplayNameFor(x => x.Name)
+            </th>
+            <th class="fs-4">
+                @Html.DisplayNameFor(x => x.Surname)
+            </th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="fs-5">
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td class="fs-5">
+                        @Html.DisplayFor(modelItem => item.Surname)
+                    </td>
+                    <td class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <a class="btn btn-secondary btn-sm" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                        <a class="btn btn-outline-danger btn-sm" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    </div>
+</div>

@@ -1,0 +1,129 @@
+# .gitignore para Java e C#
+
+# Arquivos e pastas comuns a ambas as linguagens
+*.log
+*.tmp
+*.bak
+*.swp
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Ignorar logs de crash do virtual machine
+hs_err_pid*
+
+# Compiled class file (Java)
+*.class
+
+# Logs de compilação e execução (Java)
+*.log
+
+# Arquivos e pastas da BlueJ (Java)
+*.ctxt
+
+# Arquivos e pastas do Mobile Tools for Java (J2ME) (Java)
+.mtj.tmp/
+
+# Arquivos de pacotes (Java)
+*.jar
+*.war
+*.ear
+
+# Maven (Java)
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# Gradle (Java)
+.gradle
+build/
+
+# Eclipse (Java)
+.classpath
+.project
+.settings/
+
+# IntelliJ (Java)
+*.iml
+.idea/
+out/
+
+# NetBeans (Java)
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# Compiled object files (C#)
+*.o
+*.obj
+
+# Precompiled Headers (C#)
+*.gch
+*.pch
+
+# Libraries (C#)
+*.lib
+*.a
+*.la
+*.lo
+*.dll
+*.so
+*.dylib
+
+# Executáveis (C#)
+*.exe
+*.out
+*.app
+
+# Arquivos de debug (C#)
+*.pdb
+*.ilk
+*.iobj
+*.ipdb
+
+# Visual Studio Code (C#)
+.vscode/
+
+# Visual Studio
+.vscode/
+*.code-workspace
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Arquivos gerados automaticamente pelo Mono (C#)
+mono_crash.*
+
+# Arquivos temporários do Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Resultados de build (C#)
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Rider (C#)
+.idea/
+*.sln.iml

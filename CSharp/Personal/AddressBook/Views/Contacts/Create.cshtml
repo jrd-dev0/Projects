@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Contacts List";
+}
+<h2 class="text-center">@ViewData["Title"]</h2>
+
+<div class="col-8 row g-2 align-items">
+    <form>
+      <div class="mb-3">
+        <label for="Name">Name</label>
+        <input type="text" class="form-control" placeholder="Insert name">
+      </div>
+      <div class="mb-3">
+        <label for="Email" class="form-label">Email address</label>
+        <input type="email" class="form-control" placeholder="Insert email address">
+      </div>
+      <div class="mb-3">
+        <label for="Phone" class="form-label">Phone number</label>
+        <input type="number" class="form-control" placeholder="Insert phone number">
+      </div>
+      
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <a class="btn btn-primary" role="button" asp-controller="Contacts" asp-action="Index">Return</a>
+    </form>
+</div>
+

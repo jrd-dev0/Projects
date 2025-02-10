@@ -1,0 +1,12 @@
+::TODO::
+
+1. Obter o arquivo a ser lido ou a pasta que contém os arquivos;
+1.1 Caso seja uma pasta, listar os arquivos contido na pasta e solicitar que seja informado o arquivo;
+2. Ler o arquivo e armazenar seu conteúdo;
+3. Exibir opções para Fazer uma cópia ou alterar alguma linha do arquivo;
+3.1 Caso seja uma cópia, solicitar o novo nome do arquivo e o local para armazenamento;
+3.2 Caso seja uma alteração, solicitar a linha que deverá ser alterada;
+3.2.1 Exibir o conteúdo da linha a ser alterada;
+3.2.2 Solicitar o novo conteúdo da linha a ser alterada;
+4. Exibir o conteudo do arquivo
+4.1 Exibir linha alterada em vermelho

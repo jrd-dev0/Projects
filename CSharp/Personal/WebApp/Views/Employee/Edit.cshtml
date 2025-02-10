@@ -1,0 +1,89 @@
+﻿@model WebApp.Models.Employee
+@{
+    ViewData["Title"] = "Employees";
+}
+
+<div class="text-center">
+    <h2 class="display-4">@ViewData["Title"]</h2>
+    <br /><br />
+</div>
+
+<div class="text-center">
+    <h3>Edit</h3>
+</div>
+<div class="d-grid gap-2 d-md-flex justify-content-md-center">
+    <div class="col-md-6 border-top">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <table class="table table-borderless">
+                <tbody>
+                    <tr>
+                        <th class="col-sm-2">
+                            <label asp-for="Id" class="control-label"></label>
+                        </th>
+                        <td class="col-sm-6">
+                            <input type="number" asp-for="Id" disabled="disabled" class="form-control" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="col-sm-2">
+                            <label asp-for="Name" class="control-label"></label>
+                        </th>
+                        <td class="col-sm-6">
+                            <input type="text" asp-for="Name" class="form-control" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="col-sm-2">
+                            <label asp-for="Surname" class="control-label"></label>
+                        </th>
+                        <td class="col-sm-6">
+                            <input type="text" asp-for="Surname" class="form-control" />
+                            <span asp-validation-for="Surname" class="text-danger"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="col-sm-2">
+                            <label asp-for="Email" class="control-label"></label>
+                        </th>
+                        <td class="col-sm-6">
+                            <input type="email" asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="col-sm-2">
+                            <label asp-for="Salary" class="control-label"></label>
+                        </th>
+                        <td class="col-sm-6">
+                            <input type="number" asp-for="Salary" class="form-control" />
+                            <span asp-validation-for="Salary" class="text-danger"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="col-sm-2">
+                            <label asp-for="Login" class="control-label"></label>
+                        </th>
+                        <td class="col-sm-6">
+                            <input type="text" asp-for="Login" class="form-control" />
+                            <span asp-validation-for="Login" class="text-danger"></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br />
+            <div class="form-group gap-2 d-md-flex justify-content-md-center">
+                <input type="submit" value="Edit" class="btn btn-primary" />
+                <a class="btn btn-outline-secondary" asp-action="Details" asp-route-id="@Model.Id">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
