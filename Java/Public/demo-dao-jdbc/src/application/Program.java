@@ -44,6 +44,11 @@ public class Program {
 		seller = sellerDao.findById(1);
 		seller.setBaseSalary(8000.00);
 		sellerDao.update(seller);
-		System.out.printf("Updated completed!");
+		System.out.println("Updated completed!");
+		
+		System.out.println();
+		System.out.println("==== TEST 6: Seller Delete ====");
+		sellerDao.deleteById(3);
+		System.out.println("Delete command completed!");
 	}
 }

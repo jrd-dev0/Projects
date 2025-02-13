@@ -66,7 +66,7 @@ public class SellerDaoJDBC implements SellerDao {
 		String sqlCommand = "UPDATE seller SET Name = ?, Email = ?, BirthDate = ?, BaseSalary = ?, DepartmentId = ? WHERE Id = ?";
 
 		try {
-			pstmt = connection.prepareStatement(sqlCommand, Statement.RETURN_GENERATED_KEYS);
+			pstmt = connection.prepareStatement(sqlCommand);
 			pstmt.setString(1, seller.getName());
 			pstmt.setString(2, seller.getEmail());
 			pstmt.setDate(3, java.sql.Date.valueOf(seller.getDate()));
@@ -86,7 +86,24 @@ public class SellerDaoJDBC implements SellerDao {
 
 	@Override
 	public void deleteById(Integer id) {
-		// TODO Auto-generated method stub
+		PreparedStatement pstmt = null;
+		String sqlCommand = "DELETE FROM seller WHERE Id = ?";
+
+		try {
+			pstmt = connection.prepareStatement(sqlCommand);
+			pstmt.setInt(1, id);
+
+			int rowsAffected = pstmt.executeUpdate();
+			
+			if (rowsAffected == 0) {
+                System.out.printf("No rows affected! Seller with id %d not found.%n", id);
+            }
+
+		} catch (SQLException e) {
+			throw new DbException(e.getMessage());
+		} finally {
+			DBConnection.closeStatement(pstmt);
+		}
 
 	}
 
