@@ -79,12 +79,12 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
 		String sqlCommand = "SELECT * FROM department ORDER BY Name";
-		List<Department> departmentList = new ArrayList<>();
+		
 
 		try {
 			statement = connection.prepareStatement(sqlCommand);
 			resultSet = statement.executeQuery();
-			List<Seller> list = new ArrayList<Seller>();
+			List<Department> departmentList = new ArrayList<>();
 
 			while (resultSet.next()) {
 
