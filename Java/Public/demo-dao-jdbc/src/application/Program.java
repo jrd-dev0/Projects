@@ -18,19 +18,26 @@ public class Program {
 		System.out.println("==== TEST 1: Department findById ====");
 		Department department = departmentDao.findById(3);
 		System.out.println(department);
+		System.out.println("-------------------");
 		
-		System.out.println();
 		System.out.println("==== TEST 2: Department findAll ====");
 		List<Department> departmentList = departmentDao.findAll();
 		for(Department dep : departmentList) {
 			System.out.println(dep);
 		}
+		System.out.println("-------------------");
 		
-		System.out.println();
 		System.out.println("==== TEST 3: Department insert ====");
 		Department newDepartment = new Department(null, "Biblioteca");
 		departmentDao.insert(newDepartment);
 		System.out.printf("Inserted! New id = %d%n", newDepartment.getId());
+		System.out.println("-------------------");
+		
+		System.out.println("==== TEST 4: Department Update ====");
+		department = departmentDao.findById(4);
+		department.setName("CFO");
+		departmentDao.update(department);
+		System.out.println("-------------------");
 		
 //		SellerDao sellerDao = DaoFactory.createSellerDao();
 //
