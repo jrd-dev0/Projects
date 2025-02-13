@@ -12,7 +12,6 @@ import db.DBConnection;
 import db.exceptions.DbException;
 import model.dao.DepartmentDao;
 import model.entities.Department;
-import model.entities.Seller;
 
 public class DepartmentDaoJDBC implements DepartmentDao {
 
@@ -78,7 +77,24 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 
 	@Override
 	public void deleteById(Integer id) {
-		// TODO Auto-generated method stub
+		PreparedStatement statement = null;
+		String sqlCommand = "DELETE FROM department WHERE Id = ?";
+
+		try {
+			statement = connection.prepareStatement(sqlCommand);
+			statement.setInt(1, id);
+
+			int rowsAffected = statement.executeUpdate();
+			
+			if (rowsAffected == 0) {
+                System.out.printf("No rows affected! Department with id %d not found.%n", id);
+            }
+
+		} catch (SQLException e) {
+			throw new DbException(e.getMessage());
+		} finally {
+			DBConnection.closeStatement(statement);
+		}
 		
 	}
 

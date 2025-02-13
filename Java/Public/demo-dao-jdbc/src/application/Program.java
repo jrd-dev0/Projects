@@ -39,6 +39,11 @@ public class Program {
 		departmentDao.update(department);
 		System.out.println("-------------------");
 		
+		System.out.println();
+		System.out.println("==== TEST 5: Department Delete ====");
+		departmentDao.deleteById(11);
+		System.out.println("-------------------");
+		
 //		SellerDao sellerDao = DaoFactory.createSellerDao();
 //
 //		System.out.println("==== TEST 1: Seller findById ====");
