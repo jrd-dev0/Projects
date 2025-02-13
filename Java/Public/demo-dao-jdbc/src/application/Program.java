@@ -26,6 +26,12 @@ public class Program {
 			System.out.println(dep);
 		}
 		
+		System.out.println();
+		System.out.println("==== TEST 3: Department insert ====");
+		Department newDepartment = new Department(null, "Biblioteca");
+		departmentDao.insert(newDepartment);
+		System.out.printf("Inserted! New id = %d%n", newDepartment.getId());
+		
 //		SellerDao sellerDao = DaoFactory.createSellerDao();
 //
 //		System.out.println("==== TEST 1: Seller findById ====");
