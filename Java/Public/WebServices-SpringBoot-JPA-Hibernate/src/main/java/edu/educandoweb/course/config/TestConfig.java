@@ -54,9 +54,6 @@ public class TestConfig implements CommandLineRunner{
 		Order o8 = new Order(null, Instant.parse("2021-04-10T10:10:07Z"), OrderStatus.SHIPPED, u6);
 		Order o9 = new Order(null, Instant.parse("2021-11-07T19:53:07Z"), OrderStatus.WAITING_PAYMENT, u2);
 		
-		Category cat1 = new Category(null, "Electronics"); 
-		Category cat2 = new Category(null, "Books"); 
-		Category cat3 = new Category(null, "Computers");
 		
 		Product p1 = new Product(null, "The Lord of the Rings", "Lorem ipsum dolor sit amet, consectetur.", 90.5, ""); 
 		Product p2 = new Product(null, "Smart TV", "Nulla eu imperdiet purus. Maecenas ante.", 2190.0, ""); 
@@ -66,8 +63,22 @@ public class TestConfig implements CommandLineRunner{
 		
 		userRepository.saveAll(Arrays.asList(u1, u2, u3, u4, u5, u6));
 		orderRepository.saveAll(Arrays.asList(o1, o2, o3, o4, o5, o6, o7, o8, o9));
+		productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
+		
+		Category cat1 = new Category(null, "Electronics"); 
+		Category cat2 = new Category(null, "Books"); 
+		Category cat3 = new Category(null, "Computers");
+		
+		p1.getCategories().add(cat2);
+		p2.getCategories().add(cat1);
+		p2.getCategories().add(cat3);
+		p3.getCategories().add(cat3);
+		p4.getCategories().add(cat3);
+		p5.getCategories().add(cat2);
+		
 		categoryRepository.saveAll(Arrays.asList(cat1, cat2, cat3));
 		productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
+		
 		
 	}
 }

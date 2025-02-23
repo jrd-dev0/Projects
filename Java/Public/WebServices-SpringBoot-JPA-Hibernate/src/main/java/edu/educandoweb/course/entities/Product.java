@@ -9,15 +9,17 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
 
 @Entity
 @Table(name = "tb_product")
-public class Product implements Serializable{
+public class Product implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -25,13 +27,14 @@ public class Product implements Serializable{
 	private String description;
 	private Double price;
 	private String imgUrl;
-	
-	@Transient	//impede que o JPA interprete essa associação durante o teste, uma vez que está incompleta.
-	private Set<Category> categories = new HashSet<>();		//Coleção indicada por garantir que o produto não repita a categoria
-	
+
+	@ManyToMany
+	@JoinTable(name = "tb_product_category", joinColumns = @JoinColumn(name = "product_id"), inverseJoinColumns = @JoinColumn(name = "category_id"))
+	private Set<Category> categories = new HashSet<>(); // Coleção indicada por garantir que o produto não repita a categoria.
+
 	public Product() {
 	}
-	
+
 	public Product(Long id, String name, String description, Double price, String imgUrl) {
 		this.id = id;
 		this.name = name;
@@ -79,7 +82,7 @@ public class Product implements Serializable{
 	public void setImgUrl(String imgUrl) {
 		this.imgUrl = imgUrl;
 	}
-	
+
 	public Set<Category> getCategories() {
 		return categories;
 	}
@@ -106,7 +109,5 @@ public class Product implements Serializable{
 		return "Product [id=" + id + ", name=" + name + ", description=" + description + ", price=" + price
 				+ ", imgUrl=" + imgUrl + "]";
 	}
-	
-	
 
 }
