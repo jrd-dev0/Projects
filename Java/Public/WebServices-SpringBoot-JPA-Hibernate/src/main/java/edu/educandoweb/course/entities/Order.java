@@ -16,8 +16,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "tb_order") // declaração necessaria por 'order' ser uma palavra reservada do banco de dados
-							// H2.
+@Table(name = "tb_order") // declaração necessaria por 'order' ser uma palavra reservada do banco de dados H2.
 public class Order implements Serializable {
 
 	private static final long serialVersionUID = 1L;
